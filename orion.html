@@ -6,7 +6,7 @@
       Click on the computer, the phone, or the cup of coffee to go to a new page
       and read more about the topic:
     </p>
-
+    <p id="mousecoordinates">Click on Image to Show Mouse Coordinates</p>
     <img
       src="Orion-the-Hunter-image.jpg"
       alt="Orion the Hunter"
@@ -38,5 +38,18 @@
         title="Star 2"
       />
     </map>
+
+    <script>
+      document.addEventListener("click", function(event) {
+        if (event.target.tagName === "AREA") {
+          event.preventDefault(); // Prevent default navigation for demonstration
+        }
+       // console.log(event.clientX, event.clientY);
+        document.getElementById("mousecoordinates").innerText =
+          "Mouse Coordinates: X=" + event.clientX + ", Y=" + event.clientY;
+      
+      });
+
+    </script>
   </body>
 </html>
